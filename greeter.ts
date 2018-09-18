@@ -2,10 +2,9 @@ import { language } from "./greet";
 
 export function Greeter() {
 
-    const namesGreeted : {[key : string] : number} = {};
-
+    private namesGreeted: { [key: string]: number } = {};
     // private method
-    function addName(name: string) {
+    private addName(name: string) {
         if (!namesGreeted[name]) {
             namesGreeted[name] = 1;
         }
@@ -14,27 +13,25 @@ export function Greeter() {
         }
     }
 
-    function greet(name: string, chosenLanguage: language) {
-        addName(name);
+    private greet(name: string, chosenLanguage: language) {
+       private addName(name);
 
         if (chosenLanguage === language.afr) {
             return "Goeie more, " + name;
         }
-    
         if (chosenLanguage === language.eng) {
             return "Good morning, " + name;
         }
-    
         if (chosenLanguage === language.xhosa) {
             return "Molo, " + name;
         }
     }
 
-    function counter() : number {
+    function counter(): number {
         return Object.keys(namesGreeted).length;
     }
 
-    function greeted(name: string) : string {
+    function greeted(name: string): string {
         if (namesGreeted[name]) {
             return `${name} has been greeted ${namesGreeted[name]} time/s`;
         }
@@ -43,6 +40,7 @@ export function Greeter() {
 
     return {
         greet,
-        greeted
+        greeted,
+        counter
     }
 }
